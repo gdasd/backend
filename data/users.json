@@ -17,12 +17,12 @@
   "gd2": {
     "username": "gd2",
     "password": "222",
-    "score": "0"
+    "score": "20"
   },
   "gd3": {
     "username": "gd3",
     "password": "232",
-    "score": "0"
+    "score": "10"
   },
   "carmen": {
     "username": "carmen",
@@ -53,5 +53,10 @@
     "username": "nd",
     "password": "1234",
     "score": "55"
+  },
+  "jl": {
+    "username": "jl",
+    "password": "1234",
+    "score": "5"
   }
 }

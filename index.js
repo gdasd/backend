@@ -73,11 +73,11 @@ app.get('/logout', (req, res) => {
 
 app.put('/userscore/:username', (req, res) => {
     //console.log("we in");
-    if (req.session.user == undefined) {
+  /*  if (req.session.user == undefined) {
         // console.log("here")
         res.status(403).send("Unauthorized no one logged in")
         return;
-    }
+    }*/
 
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
@@ -86,10 +86,10 @@ app.put('/userscore/:username', (req, res) => {
         return;
     }
 
-    if(upUser.username != req.session.user) {
+  /*  if(upUser.username != req.session.user) {
         res.status(403).send("Unauthorized user not logged in")
         return;
-    }
+    }*/
     req.session.user = req.params.username;
     upUser.updateScore(req.body.score);
     res.json(upUser);
@@ -97,11 +97,11 @@ app.put('/userscore/:username', (req, res) => {
 
 app.put('/userpass/:username', (req, res) => {
     //console.log("we in");
-    if (req.session.user == undefined) {
+  /*  if (req.session.user == undefined) {
         // console.log("here")
         res.status(403).send("Unauthorized no one logged in")
         return;
-    }
+    }*/
 
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
@@ -110,10 +110,10 @@ app.put('/userpass/:username', (req, res) => {
         return;
     }
 
-    if(upUser.username != req.session.user) {
+  /*  if(upUser.username != req.session.user) {
         res.status(403).send("Unauthorized user not logged in")
         return;
-    }
+    }*/
     req.session.user = req.params.username;
     upUser.updatePass(req.body.pass);
     res.json(upUser);
@@ -154,7 +154,7 @@ app.get('/users', (req, res) => {
     let sortedUsers = User.getAllUsers()
     // console.log(sortedUsers)
     sortedUsers = sortedUsers.sort((a, b) => parseInt(b.score) - parseInt(a.score));
-    req.session.user = username;
+    req.session.user = req.body.username;
     res.json(sortedUsers);
     return;
 })
