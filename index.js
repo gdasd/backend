@@ -17,11 +17,11 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false,
     proxy : true,
-  /*  cookie: { 
+    cookie: { 
         secure: true,
         maxAge: 5184000000,
         sameSite: 'none'
-    }*/
+    }
 }))
 
 const cors_options = {
