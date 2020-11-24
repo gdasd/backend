@@ -78,7 +78,6 @@ app.put('/userscore/:username', (req, res) => {
         res.status(403).send("Unauthorized no one logged in")
         return;
     }*/
-console.log(req.sessionID);
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
     if (upUser == null) {
@@ -148,7 +147,7 @@ app.get('/users', (req, res) => {
         res.status(403).send("Unauthorized")
         return;
     }*/
-    console.log(req.sessionID);
+
     // to give you users for the leaderboard, I'll sort the users by score (descending) and send it
     // console.log("we here")
     let sortedUsers = User.getAllUsers()
@@ -159,7 +158,6 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/username', (req, res) => {
-    console.log(req.sessionID);
     if (req.session.user == undefined) {
         res.status(403).send("unauthorized")
         return;
