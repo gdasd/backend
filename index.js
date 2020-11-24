@@ -116,7 +116,7 @@ app.delete('/user/:username', (req, res) => {
 app.get('/users', (req, res) => {
     let sortedUsers = User.getAllUsers()
     sortedUsers = sortedUsers.sort((a, b) => parseInt(b.score) - parseInt(a.score));
-    res.json(sortedUsers);
+    res.json(sortedUsers.slice(0,11));
     return;
 })
 
