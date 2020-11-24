@@ -59,6 +59,7 @@ app.post('/login', (req, res) => {
     if (user_data.password == password) {
         // console.log("User " + username + " credentials valid")
         req.session.user = username;
+        req.session.save();
         res.json(username)
         return;
     }
@@ -90,7 +91,7 @@ app.put('/userscore/:username', (req, res) => {
         res.status(403).send("Unauthorized user not logged in")
         return;
     }*/
-    req.session.user = req.params.username;
+    
     upUser.updateScore(req.body.score);
     res.json(upUser);
 })
@@ -114,13 +115,14 @@ app.put('/userpass/:username', (req, res) => {
         res.status(403).send("Unauthorized user not logged in")
         return;
     }*/
-    req.session.user = req.params.username;
+
     upUser.updatePass(req.body.pass);
     res.json(upUser);
     return;
 })
 
 app.delete('/user/:username', (req, res) => {
+    req.session.reload();
     if (req.session.user == undefined) {
         res.status(403).send("Unauthorized")
         return;
@@ -143,7 +145,7 @@ app.delete('/user/:username', (req, res) => {
 
 
 app.get('/users', (req, res) => {
-    let username = req.session.user;
+    
    /* if (req.session.user == undefined) {
         res.status(403).send("Unauthorized")
         return;
@@ -154,19 +156,17 @@ app.get('/users', (req, res) => {
     let sortedUsers = User.getAllUsers()
     // console.log(sortedUsers)
     sortedUsers = sortedUsers.sort((a, b) => parseInt(b.score) - parseInt(a.score));
-    req.session.user = req.body.username;
     res.json(sortedUsers);
     return;
 })
 
 app.get('/username', (req, res) => {
-    let username = req.session.user;
+    req.session.reload();
     if (req.session.user == undefined) {
         res.status(403).send("unauthorized")
         return;
     }
     
-    req.session.user = username;
     res.json(req.session.user);
 })
 
