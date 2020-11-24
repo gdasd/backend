@@ -14,7 +14,7 @@ const expressSession = require('express-session');
 app.use(expressSession({
     name: "tetrisSessionCookie",
     secret: "what it do babyyy",
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     proxy : true,
     cookie: { 
