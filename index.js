@@ -103,7 +103,7 @@ app.post('/userpass/:username', (req, res) => {
         res.status(403).send("Unauthorized no one logged in")
         return;
     }*/
-    let user_data = login_data.get(username);
+    let user_data = login_data.get(req.params.username);
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
     if (upUser == null) {
