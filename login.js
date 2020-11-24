@@ -7,14 +7,13 @@ class User {
         this.score = score;
     }
 
-    update (score, pass) {
-        if (score != null) {
-            console.log("here")
-            this.score = score;
-        }
-        if (pass != null) {
-            this.password = pass;
-        }
+    updateScore (score) {
+        this.score = score;
+        user_data.set(this.username, this);
+    }
+
+    updatePass (pass) {
+        this.password = pass;
         user_data.set(this.username, this);
     }
 
