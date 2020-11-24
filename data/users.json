@@ -1,0 +1,32 @@
+{
+  "jd": {
+    "username": "jd",
+    "password": "123",
+    "score": "50"
+  },
+  "jfds": {
+    "username": "jfds",
+    "password": "new",
+    "score": "100"
+  },
+  "gd": {
+    "username": "gd",
+    "password": "111",
+    "score": "0"
+  },
+  "gd2": {
+    "username": "gd2",
+    "password": "222",
+    "score": "0"
+  },
+  "gd3": {
+    "username": "gd3",
+    "password": "232",
+    "score": "0"
+  },
+  "carmen": {
+    "username": "carmen",
+    "password": "silva",
+    "score": "0"
+  }
+}
