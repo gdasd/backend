@@ -16,10 +16,10 @@ app.use(expressSession({
     secret: "what it do babyyy",
     resave: false,
     saveUninitialized: false,
-    proxy: true,
+    proxy : true,
     cookie: { 
         secure: true,
-       // sameSite: 'none' 
+        sameSite: 'none' 
     }
 }))
 
