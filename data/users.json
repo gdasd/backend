@@ -28,5 +28,30 @@
     "username": "carmen",
     "password": "silva",
     "score": "0"
+  },
+  "ad": {
+    "username": "ad",
+    "password": "1234",
+    "score": "45"
+  },
+  "fas": {
+    "username": "fas",
+    "password": "1234",
+    "score": "24"
+  },
+  "ar": {
+    "username": "ar",
+    "password": "1234",
+    "score": "11"
+  },
+  "eda": {
+    "username": "eda",
+    "password": "1234",
+    "score": "43"
+  },
+  "nd": {
+    "username": "nd",
+    "password": "1234",
+    "score": "55"
   }
 }

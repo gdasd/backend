@@ -153,9 +153,9 @@ app.get('/users', (req, res) => {
     // console.log("we here")
     let sortedUsers = User.getAllUsers()
     // console.log(sortedUsers)
-    sortedUsers = sortedNames.sort((a, b) => parseInt(b.score) - parseInt(a.score));
+    sortedUsers = sortedUsers.sort((a, b) => parseInt(b.score) - parseInt(a.score));
     req.session.user = username;
-    res.json(sortedNames);
+    res.json(sortedUsers);
     return;
 })
 
