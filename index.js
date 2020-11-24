@@ -19,7 +19,7 @@ app.use(expressSession({
     proxy : true,
     cookie: { 
         secure: true,
-       // sameSite: 'none' 
+        sameSite: 'none' 
     }
 }))
 
