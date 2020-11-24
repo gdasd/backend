@@ -18,7 +18,11 @@ app.use(expressSession({
     saveUninitialized: false
 }))
 
-app.use(cors());
+const cors_options = {
+    origin: 'https://gdasd.github.io',
+    credentials: true
+  }
+  app.use(cors(cors_options));
 
 const User = require("./login.js");
 
