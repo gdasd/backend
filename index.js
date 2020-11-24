@@ -96,14 +96,14 @@ app.put('/userscore/:username', (req, res) => {
     res.json(upUser);
 })
 
-app.put('/userpass/:username', (req, res) => {
+app.post('/userpass/:username', (req, res) => {
     //console.log("we in");
   /*  if (req.session.user == undefined) {
         // console.log("here")
         res.status(403).send("Unauthorized no one logged in")
         return;
     }*/
-
+    let user_data = login_data.get(username);
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
     if (upUser == null) {
@@ -115,6 +115,11 @@ app.put('/userpass/:username', (req, res) => {
         res.status(403).send("Unauthorized user not logged in")
         return;
     }*/
+    if (user_data.password != req.body.currentPassword) {
+        // console.log("User " + username + " credentials valid")
+        res.status(403).send("Wrong Password");
+        return;
+    }
 
     upUser.updatePass(req.body.pass);
     res.json(upUser);
