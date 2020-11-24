@@ -11,6 +11,19 @@ app.use(bodyParser.json());
 
 const expressSession = require('express-session');
 
+
+
+const cors_options = {
+    origin: 'https://gdasd.github.io',
+    credentials: true
+  }
+
+app.use(cors(cors_options));
+
+const User = require("./login.js");
+
+const login_data = require('data-store')( {path: process.cwd() + '/data/users.json'} );
+
 app.use(expressSession({
     name: "tetrisSessionCookie",
     secret: "what it do babyyy",
@@ -23,17 +36,6 @@ app.use(expressSession({
         sameSite: 'none'
     }
 }))
-
-const cors_options = {
-    origin: 'https://gdasd.github.io',
-    credentials: true
-  }
-
-app.use(cors(cors_options));
-
-const User = require("./login.js");
-
-const login_data = require('data-store')( {path: process.cwd() + '/data/users.json'} );
 
 app.post('/user', (req, res) => {
     let {username, password} = req.body;
