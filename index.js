@@ -19,8 +19,8 @@ app.use(expressSession({
     proxy : true,
     cookie: { 
         secure: true,
-        maxAge: 5184000000,
-        sameSite: 'none'
+       /* maxAge: 5184000000,
+        sameSite: 'none'*/
     }
 }))
 
