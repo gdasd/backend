@@ -144,10 +144,10 @@ app.delete('/user/:username', (req, res) => {
 
 app.get('/users', (req, res) => {
     let username = req.session.user;
-    if (req.session.user == undefined) {
+   /* if (req.session.user == undefined) {
         res.status(403).send("Unauthorized")
         return;
-    }
+    }*/
 
     // to give you users for the leaderboard, I'll sort the users by score (descending) and send it
     // console.log("we here")
