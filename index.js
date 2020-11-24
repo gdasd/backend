@@ -117,6 +117,7 @@ app.put('/userpass/:username', (req, res) => {
 
     upUser.updatePass(req.body.pass);
     res.json(upUser);
+    return;
 })
 
 app.delete('/user/:username', (req, res) => {
@@ -136,7 +137,7 @@ app.delete('/user/:username', (req, res) => {
         return;
     }
     delUser.delete();
-    return(true);
+    return;
 })
 
 
