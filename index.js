@@ -59,7 +59,6 @@ app.post('/login', (req, res) => {
     if (user_data.password == password) {
         // console.log("User " + username + " credentials valid")
         req.session.user = username;
-        req.session.save();
         res.json(username)
         return;
     }
@@ -79,7 +78,7 @@ app.put('/userscore/:username', (req, res) => {
         res.status(403).send("Unauthorized no one logged in")
         return;
     }*/
-
+console.log(req.sessionID);
     let upUser = User.findByName(req.params.username);
     // console.log(upUser);
     if (upUser == null) {
@@ -122,7 +121,6 @@ app.put('/userpass/:username', (req, res) => {
 })
 
 app.delete('/user/:username', (req, res) => {
-    req.session.reload();
     if (req.session.user == undefined) {
         res.status(403).send("Unauthorized")
         return;
@@ -150,7 +148,7 @@ app.get('/users', (req, res) => {
         res.status(403).send("Unauthorized")
         return;
     }*/
-
+    console.log(req.sessionID);
     // to give you users for the leaderboard, I'll sort the users by score (descending) and send it
     // console.log("we here")
     let sortedUsers = User.getAllUsers()
@@ -161,7 +159,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/username', (req, res) => {
-    req.session.reload();
+    console.log(req.sessionID);
     if (req.session.user == undefined) {
         res.status(403).send("unauthorized")
         return;
