@@ -8,7 +8,9 @@ class User {
     }
 
     updateScore (score) {
-        this.score = score;
+        if (score > this.score) {
+            this.score = score;
+        }
         user_data.set(this.username, this);
     }
 
