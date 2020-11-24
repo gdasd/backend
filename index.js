@@ -15,13 +15,19 @@ app.use(expressSession({
     name: "tetrisSessionCookie",
     secret: "what it do babyyy",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { 
+        secure: true,
+       // sameSite: 'none' 
+    }
 }))
 
-app.use(cors({
-    origin: "http://cryptic-hamlet-31330.herokuapp.com/",
-    credentials : true
-}));
+const cors_options = {
+    origin: 'https://gdasd.github.io',
+    credentials: true
+  }
+
+app.use(cors(cors_options));
 
 const User = require("./login.js");
 
