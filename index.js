@@ -18,7 +18,10 @@ app.use(expressSession({
     saveUninitialized: false
 }))
 
-app.use(cors());
+app.use(cors({
+    origin: "http://cryptic-hamlet-31330.herokuapp.com/",
+    credentials : true
+}));
 
 const User = require("./login.js");
 
