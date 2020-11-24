@@ -15,7 +15,11 @@ app.use(expressSession({
     name: "tetrisSessionCookie",
     secret: "what it do babyyy",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { 
+        secure: true,
+        sameSite: 'none' 
+    }
 }))
 
 const cors_options = {
